@@ -30,7 +30,8 @@
       "\n"))
 
 
-  (define filename (string-append (include-dir) "/" name))
+  (define filename 
+    (path->string (build-path (obj-root) "include" name)))
   (define command `("/usr/bin/env" "cpp" ,(format "-D~a" def) "-E" "-P" ,@(cpp-flags) ,filename))
   (let-values (((process out in err) (apply subprocess #f #f #f command)))
    (close-output-port in)

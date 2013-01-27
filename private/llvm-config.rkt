@@ -11,6 +11,7 @@
 (provide
   (contract-out
     (include-dir (-> string?))
+    (obj-root (-> string?))
     (cpp-flags (-> (listof string?)))))
 
 (define-syntax (define/promise stx)
@@ -39,6 +40,7 @@
 
 
 (define/promise include-dir (llvm-config "--includedir"))
+(define/promise obj-root (llvm-config "--obj-root"))
 (define/promise cpp-flags (llvm-config/list "--cppflags"))
 
 

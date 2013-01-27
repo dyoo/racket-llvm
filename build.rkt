@@ -3,7 +3,7 @@
 
 (define (build)
   (define launcher "/usr/bin/env")
-  (define compiler '("clang"))
+  (define compiler '("clang++"))
   (define os (system-type 'os))
   (match-define (list version) (llvm-config "--version"))
 
@@ -38,8 +38,8 @@
       cxx-flags
       ld-flags
       source-file))
-
-  (let-values (((process out in err)
+  (displayln arguments)
+  #;(let-values (((process out in err)
                (apply subprocess #f #f (current-error-port) launcher arguments)))
     (close-output-port in)
     (close-input-port out)

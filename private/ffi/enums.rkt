@@ -68,7 +68,7 @@
                        (lambda (x) (regexp-replace "_" x "-"))
                        string-trim)
            (string-split
-             (read-genfile "llvm/Intrinsics.gen" "GET_INTRINSIC_ENUM_VALUES")
+             (read-genfile "llvm/IR/Intrinsics.gen" "GET_INTRINSIC_ENUM_VALUES")
              ","))))
      (generate-enum-code #'name intrinsic-names))))
 (generate-intrinsics LLVMIntrinsic)
