@@ -38,8 +38,7 @@
       cxx-flags
       ld-flags
       source-file))
-  (displayln arguments)
-  #;(let-values (((process out in err)
+  (let-values (((process out in err)
                (apply subprocess #f #f (current-error-port) launcher arguments)))
     (close-output-port in)
     (close-input-port out)
